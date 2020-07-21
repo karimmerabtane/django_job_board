@@ -3,5 +3,10 @@
  - get frontend template
  - 
  - pip freeze > requirements.txt   // creation 
+ - 
+ - creat app name job , add  to setting 
  -  
+ - creat models job,category and add to admin
+ - 
+ - creat app url 
  - 
