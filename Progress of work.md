@@ -1,0 +1,6 @@
+ - creation project 
+ - upload project on gitgub 
+ - get frontend template
+ - 
+ - pip freeze > requirements.txt   // creation 
+ -  
