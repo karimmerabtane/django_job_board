@@ -10,7 +10,7 @@
             <div class="row">
                 <div class="col-xl-12">
                     <div class="bradcam_text">
-                        <h3>4536+ Jobs Available</h3>
+                        <h3>{{jobs.count}}+ Jobs Available</h3>
                     </div>
                 </div>
             </div>
@@ -109,36 +109,32 @@
                                 <div class="col-md-6">
                                     <h4>Job Listing</h4>
                                 </div>
-                                <div class="col-md-6">
-                                    <div class="serch_cat d-flex justify-content-end">
-                                        <select>
-                                            <option data-display="Most Recent">Most Recent</option>
-                                            <option value="1">Marketer</option>
-                                            <option value="2">Wordpress </option>
-                                            <option value="4">Designer</option>
-                                        </select>
-                                    </div>
-                                </div>
+                                
                             </div>
                         </div>
                     </div>
 
                     <div class="job_lists m-0">
                         <div class="row">
+
+                            <!-- job list -->
+                            {% for job in jobs   %}
+                              
+                           
                             <div class="col-lg-12 col-md-12">
                                 <div class="single_jobs white-bg d-flex justify-content-between">
                                     <div class="jobs_left d-flex align-items-center">
                                         <div class="thumb">
-                                            <img src="img/svg_icon/1.svg" " alt="">
+                                            <img src=" {{job.image.url}} " height="80" width="80">
                                         </div>
                                         <div class="jobs_conetent">
-                                            <a href="job_details.html"><h4>Software Engineer</h4></a>
+                                            <a href="{{job.get_absolute_url}}"><h4>{{job.title}}</h4></a>
                                             <div class="links_locat d-flex align-items-center">
                                                 <div class="location">
                                                     <p> <i class="fa fa-map-marker"></i> California, USA</p>
                                                 </div>
                                                 <div class="location">
-                                                    <p> <i class="fa fa-clock-o"></i> Part-time</p>
+                                                    <p> <i class="fa fa-clock-o"></i> {{job.job_type}}</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -146,29 +142,27 @@
                                     <div class="jobs_right">
                                         <div class="apply_now">
                                             <a class="heart_mark" href="#"> <i class="fa fa-heart"></i> </a>
-                                            <a href="job_details.html" class="boxed-btn3">Apply Now</a>
+                                            <a href="{{job.get_absolute_url}}" class="boxed-btn3">Apply Now</a>
                                         </div>
                                         <div class="date">
-                                            <p>Date line: 31 Jan 2020</p>
+                                            <p>Date line: {{job.publish|date:'d M Y '}}</p>
                                         </div>
                                     </div>
                                 </div>
                             </div>
 
-                        </div>
+                            {% endfor %}
+                            <!-- and job list -->
 
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <div class="pagination_wrap">
-                                    <ul>
-                                        <li><a href="#"> <i class="ti-angle-left"></i> </a></li>
-                                        <li><a href="#"><span>01</span></a></li>
-                                        <li><a href="#"><span>02</span></a></li>
-                                        <li><a href="#"> <i class="ti-angle-right"></i> </a></li>
-                                    </ul>
-                                </div>
-                            </div>
                         </div>
+                        
+                        {% if jobs.has_other_pages %}
+                            
+                        
+                            
+                       {% include "pagination.html" with page=jobs%}
+                       
+                       {% endif %}
                     </div>
                 </div>
             </div>
