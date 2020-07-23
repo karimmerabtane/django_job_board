@@ -2,6 +2,7 @@ from django.db import models
 from django.utils import timezone
 from django.urls import reverse
 from django.utils.text import slugify
+from django.contrib.auth.models import User
 
 
 # Create your models here.
@@ -17,6 +18,7 @@ def image_upload(instance , filename):
     return "jobs/%s.%s"%(instance.id , extension)
 class Job(models.Model):
     title            = models.CharField(max_length = 100) 
+    job_owner        = models.ForeignKey(User , related_name = 'job_owner',on_delete = models.CASCADE)
     slug             = models.SlugField(null= True , blank = True)
     # location
     category         = models.ForeignKey('Category', on_delete=models.CASCADE)
