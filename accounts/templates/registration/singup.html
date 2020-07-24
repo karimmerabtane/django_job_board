@@ -1,0 +1,28 @@
+
+{% extends "base.html" %}
+{% load bootstrap4 %}
+
+
+{% block content %}
+<div class="bradcam_area bradcam_bg_1">
+
+
+</div>
+<div class='login-box'>
+   <h1>registration </h1>
+
+   <form method="post" ">
+      {% csrf_token %}
+      {% bootstrap_form form %}
+      <div class="col-md-12">
+         <div class="submit_btn">
+            <button class="boxed-btn3 w-100" type="submit">singup</button>
+         </div>
+      </div>
+      
+   </form>
+
+
+</div>
+{% endblock %}
+

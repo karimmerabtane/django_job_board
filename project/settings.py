@@ -31,7 +31,8 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'django.contrib.admin',
+
+    
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -40,9 +41,13 @@ INSTALLED_APPS = [
 
     # app 
     'job',
+    'accounts',
 
+    # admin app 
+    'django.contrib.admin',
     # package add
     "bootstrap4",
+   
 ]
 
 MIDDLEWARE = [
@@ -130,3 +135,10 @@ STATICFILES_DIRS = [
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
+
+
+
+# backend email configuration
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
