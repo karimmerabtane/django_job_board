@@ -42,11 +42,13 @@ INSTALLED_APPS = [
     # app 
     'job',
     'accounts',
+    'contact',
 
     # admin app 
     'django.contrib.admin',
     # package add
     "bootstrap4",
+    'django_filters',
    
 ]
 
@@ -138,7 +140,12 @@ MEDIA_URL = '/media/'
 
 
 
-# backend email configuration
+# email configuration
 
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'karimbiologie@gmail.com'
+EMAIL_HOST_PASSWORD = 'jahbuzlltnxlhdss'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
