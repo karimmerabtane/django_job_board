@@ -43,14 +43,20 @@ INSTALLED_APPS = [
     'job',
     'accounts',
     'contact',
+    'blog',
 
     # admin app 
     'django.contrib.admin',
+
     # package add
     "bootstrap4",
+    'rest_framework',
     'django_filters',
+    'taggit',
+
    
 ]
+INSTALLED_APPS += ('django_summernote', )
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -149,3 +155,4 @@ EMAIL_HOST_USER = 'karimbiologie@gmail.com'
 EMAIL_HOST_PASSWORD = 'jahbuzlltnxlhdss'
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
+X_FRAME_OPTIONS = 'SAMEORIGIN'

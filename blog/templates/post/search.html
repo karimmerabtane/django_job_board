@@ -1,0 +1,61 @@
+{%extends 'blog/base.html'%}
+{%load blog_tags%}
+{%block title%}
+    Search
+    {%endblock%}
+
+    {%block content%}
+
+        <div class="bradcam_area bradcam_bg_1"></div>
+
+        {% if query %}
+
+            <h1>
+                post containing :
+                {{query}}</h1>
+
+            <h3>
+                {% with resulta.count as total_resulta %}
+
+                found
+                {{total_resulta}}
+                result
+                {{total_resulta|pluralize}}
+                {%endwith%}
+
+            </h3>
+            {% for post in resulta %}
+
+                <h4>
+                    <a href="{{post.get_absolute_url}}">
+                        {{post.title}}
+                    </a>
+                </h4>
+
+                {{post.body|markdown|truncatewords_html:5}}
+
+                {% empty %}
+                <p>
+                    there not resulta for query
+                </p>
+
+                {%endfor%}
+
+                <p>
+                    <a href="{% url 'blog:search_post'%}">
+                        Search egain</a>
+                </p>
+
+            {% else %}
+
+                <h1>Shearch for post
+                </h1>
+                <form method="GET">
+                    {{form.as_p }}
+                    <button type="submit">
+                        Search</button>
+                </form>
+
+            {% endif %}
+
+        {%endblock content%}
